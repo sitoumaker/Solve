@@ -1,0 +1,146 @@
+<!doctype html>
+<html data-theme="light" lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Solve</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+  <script src="https://kit.fontawesome.com/b75bed1189.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="flex mt-4 md:mt-6 justify-between items-center">
+      <div class="py-2 pl-12 pr-2 md:pr-4 bg-[#CFFF00] shadow-lg hover:shadow-xl transition-shadow rounded-r-lg">
+        <div class="text-2xl md:text-3xl font-bold text-center no-underline">
+          <a href="/">Solve</a>
+        </div>
+      </div>
+      <div>
+        <ul class="flex space-x-4 md:space-x-12  lg:space-x-20 items-center pr-6">
+          <li class="text-lg md:text-xl lg:text-2xl font-bold">
+            <a href="/about" class="hover:text-[#CFFF00] transition-colors">À propos</a>
+          </li>
+          <!-- ✅ <nav> dans un <li> -->
+          <li>
+            <nav>
+              <div class="grid grid-flow-col gap-6">
+                <a href="https://www.linkedin.com/in/jonathan-sitou-lawson-13174232b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank">
+                  <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+                <a href="https://github.com/sitoumaker/Solve" target="_blank">
+                  <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+                <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank" >
+                  <i class="fa-brands fa-instagram fa-xl"></i>
+                </a>
+              </div>
+            </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider divider-neutral mx-4 md:mx-8"></div>
+  </header>
+
+  <main>
+    <div class="flex flex-col items-center justify-center px-4 md:px-8 py-8 gap-4 mb-2 md:mb-4 max-w-2xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Bienvenue sur Solve</h1>
+
+      <!-- ✅ <ul> sortie du <p> (invalide en HTML) -->
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-center">
+        <strong>Solve</strong> est un générateur de mots basé sur un nombre <strong>k</strong> et un ensemble de
+        lettres.<br>
+        Rendez-vous dans la section <strong>À propos</strong> pour en savoir plus.
+      </p>
+
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed self-start">
+        Pour trouver le mot que vous recherchez :
+      </p>
+      <ul class="list-disc list-inside text-base md:text-lg text-gray-600 leading-relaxed self-start w-full">
+        <li>Saisissez le nombre de lettres du mot à trouver (ex : <strong>3</strong>)</li>
+        <li>Entrez les lettres dont vous disposez sans espace</li>
+        <li>Cliquez sur <strong>Calculer</strong></li>
+      </ul>
+
+      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-center">
+        Vous obtiendrez alors une liste de mots issus du dictionnaire. <br>
+        <strong>À vous de faire votre choix !</strong>
+      </p>
+    </div>
+    <form action="{{url_for('solve')}}" method="POST" class="flex flex-col items-center justify-center gap-4 mb-6">
+      <label
+        class="input input-lg w-full max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
+        for="number">
+        <input type="number" name="number" id="number" placeholder="Longueur du mot (ex: 3)" class="w-full" required />
+      </label>
+
+      <label
+        class="input input-lg w-full max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
+        for="text">
+        <input type="text" name="text" id="text" placeholder="Entrez vos lettres sans espace" class="w-full" required />
+      </label>
+      <div class="flex justify-center mb-6">
+        <button type="submit" value="calculer"
+          class="px-6 py-3 bg-[#CFFF00] text-gray-800 font-semibold rounded-lg shadow-md hover:bg-[#b3ff00] transition-colors">
+          Générer
+        </button>
+      </div>
+
+      {% if resultat %}
+      <div class="flex flex-wrap justify-center gap-3 px-4 md:px-8 py-6 max-w-4xl mx-auto">
+        {% for mot in resultat %}
+        <span
+          class="px-4 py-2 border-2 border-[#CFFF00] rounded-lg font-bold text-gray-800 shadow-sm hover:bg-[#CFFF00] hover:shadow-md transition-all cursor-default">
+          {{ mot }}
+        </span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </form>
+  </main>
+
+  <!-- ✅ footer dans <body> avant </body> -->
+  <footer class="footer footer-center p-6 md:p-10 bg-[#cfff00] text-base-content">
+    <nav>
+      <div class="grid grid-flow-col gap-6">
+        <a href="https://www.linkedin.com/in/jonathan-sitou-lawson-13174232b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank">
+          <i class="fa-brands fa-linkedin fa-2xl"></i>
+        </a>
+        <a href="https://github.com/sitoumaker/Solve" target="_blank">
+          <!-- ✅ target="" → target="_blank" -->
+          <i class="fa-brands fa-github fa-2xl"></i>
+        </a>
+        <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank">
+          <i class="fa-brands fa-instagram fa-2xl"></i>
+        </a>
+      </div>
+    </nav>
+    <aside class="text-center">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+        <span class="font-bold text-base md:text-lg">Solve</span>
+        <span class="italic text-gray-400 font-mono text-sm md:text-base">by Sitou Lawson</span>
+      </div>
+      <p class="font-mono text-xs md:text-sm mt-2">© 2026 Solve. Tous droits réservés.</p>
+    </aside>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html data-theme="light" lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Solve</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+  <script src="https://kit.fontawesome.com/b75bed1189.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="flex mt-4 md:mt-6 justify-between items-center">
+      <div class="py-2 pl-12 pr-2 md:pr-4 bg-[#CFFF00] shadow-lg hover:shadow-xl transition-shadow rounded-r-lg">
+        <div class="text-2xl md:text-3xl font-bold text-center no-underline">
+          <a href="/">Solve</a>
+        </div>
+      </div>
+      <div>
+        <ul class="flex space-x-4 md:space-x-12  lg:space-x-20 items-center pr-6">
+          <li class="text-lg md:text-xl lg:text-2xl font-bold">
+            <a href="/about" class="hover:text-[#CFFF00] transition-colors">À propos</a>
+          </li>
+          <!-- ✅ <nav> dans un <li> -->
+          <li>
+            <nav>
+              <div class="grid grid-flow-col gap-6">
+                <a href="https://www.linkedin.com/in/jonathan-sitou-lawson-13174232b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank">
+                  <i class="fa-brands fa-linkedin fa-xl"></i>
+                </a>
+                <a href="https://github.com/sitoumaker/Solve" target="_blank">
+                  <i class="fa-brands fa-github fa-xl"></i>
+                </a>
+                <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank">
+                  <i class="fa-brands fa-instagram fa-xl"></i>
+                </a>
+              </div>
+            </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider divider-neutral mx-4 md:mx-8"></div>
+  </header>
+
+  <main>
+    <section class="px-4 md:px-8 lg:px-12 py-6 md:py-8">
+      <!-- Section 1 : Texte + Image -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center mb-8 md:mb-4">
+        <!-- Texte à gauche -->
+        <div class="space-y-4 md:space-y-6">
+          <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-left">
+            Résolution du jeu 4image1mot par
+            <span class="text-[#CFFF00]">des calculs de probabilités</span>
+          </h1>
+          <p class="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed text-left">
+            Le jeu 4image1mot est un jeu de réflexion où les joueurs doivent trouver un mot commun à quatre images
+            données.
+            Ce jeu est conçu sur différents niveaux de difficulté. Le jeu commence avec le niveau le plus bas, et
+            devient de plus en plus difficile au fur et à mesure que vous avancez. Les mots à trouver varient
+            généralement entre 3 lettres (pour les plus simples) et 9 lettres (pour les plus difficiles).
+            Le rapport entre les images devient aussi de moins en moins évident et logique pour les niveaux les plus
+            difficiles.
+            Certaines images sont faites pour mettre le joueur sur une fausse piste.
+          </p>
+        </div>
+
+        <!-- Image à droite -->
+        <div class="flex justify-center md:justify-end">
+          <img src="{{ url_for('static', filename='images/mot.png') }}" alt="4 images 1 mot"
+            class="w-full max-w-xs md:max-w-md lg:max-w-lg ">
+        </div>
+      </div>
+
+      <!-- Paragraphe pleine largeur -->
+      <p class="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed text-left mb-8 md:mb-12">
+        C'est donc un jeu de réflexion et de logique plutôt stimulant, aussi bien pour les adultes que pour les plus
+        jeunes.
+        C'est donc un jeu de réflexion et de logique plutôt stimulant, aussi bien pour les adultes que pour les plus
+        jeunes.
+        Si la solution proposée est fausse, les lettres vont apparaître en rouge. Il suffit alors de cliquer sur une
+        lettre
+        pour la retirer et en choisir une autre pour la remplacer.
+      </p>
+
+      <!-- Image pleine largeur -->
+      <img src="{{ url_for('static', filename='images/ecran1.webp') }}" alt="image du jeu" class="w-full mb-8 md:mb-12">
+
+      <!-- Paragraphe pleine largeur -->
+      <p class="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed text-left mb-8 md:mb-12">
+        En utilisant les calculs de probabilités, nous pouvons analyser les différentes combinaisons
+        d'images et les mots associés pour déterminer la probabilité de chaque mot d'être la solution correcte. En
+        évaluant les caractéristiques des images et en comparant les mots possibles, nous pouvons affiner nos choix
+        et augmenter nos chances de trouver la bonne réponse. Cette approche mathématique nous permet d'aborder le
+        jeu de manière stratégique et d'améliorer notre performance en identifiant les indices visuels et
+        linguistiques présents dans les images.
+      </p>
+
+      <!-- Section 2 : Comment ça marche -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
+        <!-- Texte à gauche -->
+        <div class="space-y-4 md:space-y-6">
+          <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-left">
+            Comment ça marche ?
+          </h2>
+          <p class="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed text-left">
+            Un travail préliminaire a été effectué afin de déterminer le chemin à suivre.
+            Nous utilisons les formules de
+            la permutation et de l'arrangement pour déterminer, dans un premier temps, le nombre total de permutations
+            possibles
+            𝑛 pour les lettres données. Ensuite, nous réalisons des arrangements de
+            𝑘 éléments parmi ces
+            𝑛 éléments. Enfin, nous comparons les résultats obtenus avec un dictionnaire de mots afin d'identifier les
+            mots les plus probables à partir des lettres données.
+          </p>
+        </div>
+
+        <!-- Image à droite -->
+        <div class="flex justify-center md:justify-end">
+          <img src="{{ url_for('static', filename='images/form.png') }}" alt="formule"
+            class="w-full max-w-xs md:max-w-sm lg:max-w-md rounded-lg shadow-lg">
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+<footer class="footer footer-center p-6 md:p-10 bg-[#cfff00] text-base-content">
+  <nav>
+    <div class="grid grid-flow-col gap-6">
+      <a href="https://www.linkedin.com/in/jonathan-sitou-lawson-13174232b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        target="_blank">
+        <i class="fa-brands fa-linkedin fa-2xl"></i>
+      </a>
+      <a href="https://github.com/sitoumaker/Solve" target="">
+        <i class="fa-brands fa-github fa-2xl"></i>
+      </a>
+      <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank">
+        <i class="fa-brands fa-instagram fa-2xl"></i>
+      </a>
+    </div>
+  </nav>
+  <aside class="text-center">
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+      <span class="font-bold text-base md:text-lg">Solve</span>
+      <span class="italic text-gray-400 font-mono text-sm md:text-base">by Sitou Lawson</span>
+    </div>
+    <p class="font-mono text-xs md:text-sm mt-2">© 2026 Solve. Tous droits réservés.</p>
+  </aside>
+</footer>
+
+</html>
