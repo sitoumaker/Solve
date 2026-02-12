@@ -46,7 +46,7 @@
                 <a href="https://github.com/sitoumaker/Solve" target="_blank">
                   <i class="fa-brands fa-github fa-xl"></i>
                 </a>
-                <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank" >
+                <a href="https://www.instagram.com/jonathan_sitou_lawson?igsh=MXJjNzQ3N2I5eGczNA==" target="_blank">
                   <i class="fa-brands fa-instagram fa-xl"></i>
                 </a>
               </div>
@@ -59,48 +59,54 @@
   </header>
 
   <main>
-    <div class="flex flex-col items-center justify-center px-4 md:px-8 py-8 gap-4 mb-2 md:mb-4 max-w-2xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 text-center">Bienvenue sur Solve</h1>
+    <div
+      class="flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-6 md:py-8 gap-4 w-full max-w-2xl mx-auto">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center">
+        Bienvenue sur Solve
+      </h1>
 
-      <!-- ✅ <ul> sortie du <p> (invalide en HTML) -->
-      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-center">
+      <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed text-center">
         <strong>Solve</strong> est un générateur de mots basé sur un nombre <strong>k</strong> et un ensemble de
         lettres.<br>
         Rendez-vous dans la section <strong>À propos</strong> pour en savoir plus.
       </p>
 
-      <p class="text-base md:text-lg text-gray-600 leading-relaxed self-start">
+      <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed self-start">
         Pour trouver le mot que vous recherchez :
       </p>
-      <ul class="list-disc list-inside text-base md:text-lg text-gray-600 leading-relaxed self-start w-full">
+      <ul class="list-disc list-inside text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed self-start w-full">
         <li>Saisissez le nombre de lettres du mot à trouver (ex : <strong>3</strong>)</li>
         <li>Entrez les lettres dont vous disposez sans espace</li>
         <li>Cliquez sur <strong>Calculer</strong></li>
       </ul>
 
-      <p class="text-base md:text-lg text-gray-600 leading-relaxed text-center">
-        Vous obtiendrez alors une liste de mots issus du dictionnaire. <br>
+      <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed text-center">
+        Vous obtiendrez alors une liste de mots issus du dictionnaire.<br>
         <strong>À vous de faire votre choix !</strong>
       </p>
     </div>
-    <form action="{{url_for('solve')}}" method="POST" class="flex flex-col items-center justify-center gap-4 mb-6">
+    <form action="{{url_for('solve')}}" method="POST" class="flex flex-col items-center justify-center gap-4 px-4 mb-8">
+
       <label
-        class="input input-lg w-full max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
+        class="input input-md sm:input-lg w-full max-w-xs sm:max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
         for="number">
-        <input type="number" name="number" id="number" placeholder="Longueur du mot (ex: 3)" class="w-full" required />
+        <i class="fa-solid fa-hashtag text-gray-400"></i>
+        <input type="number" name="number" id="number" placeholder="Longueur du mot (ex: 3)"
+          class="w-full text-sm sm:text-base" required />
       </label>
 
       <label
-        class="input input-lg w-full max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
+        class="input input-md sm:input-lg w-full max-w-xs sm:max-w-sm border-2 border-gray-200 focus-within:border-[#CFFF00] transition-colors shadow-sm"
         for="text">
-        <input type="text" name="text" id="text" placeholder="Entrez vos lettres sans espace" class="w-full" required />
+        <i class="fa-solid fa-font text-gray-400"></i>
+        <input type="text" name="text" id="text" placeholder="Entrez vos lettres sans espace"
+          class="w-full text-sm sm:text-base" required />
       </label>
-      <div class="flex justify-center mb-6">
-        <button type="submit" value="calculer"
-          class="px-6 py-3 bg-[#CFFF00] text-gray-800 font-semibold rounded-lg shadow-md hover:bg-[#b3ff00] transition-colors">
-          Générer
-        </button>
-      </div>
+
+      <button type="submit"
+        class="px-6 py-2 sm:py-3 bg-[#CFFF00] text-gray-800 font-semibold text-sm sm:text-base rounded-lg shadow-md hover:bg-[#b3ff00] transition-colors">
+        Générer
+      </button>
 
       {% if resultat %}
       <div class="flex flex-wrap justify-center gap-3 px-4 md:px-8 py-6 max-w-4xl mx-auto">
