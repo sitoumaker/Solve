@@ -24,7 +24,7 @@ def solve():
             if b < 0:
                 erreur = "Sérieusement un nombre négatif !"
 
-            elif b > len(lettres) or b > 7:
+            elif b > len(lettres) or b > 10:
                 erreur = "Nombre trop grand par rapport aux lettres."
 
             else:
